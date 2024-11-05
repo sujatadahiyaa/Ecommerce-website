@@ -1,0 +1,132 @@
+{% extends 'store/layouts/main.html' %}
+
+{% block content %}
+    {% include 'store/inc/slider.html' %}
+    {% include 'store/inc/footer.html' %}
+
+<div class="container" >
+    <div class="row" >
+        <div class="col-md-12">
+            <div class="row owl-carousel owl-theme" style="background-color:#F0F8FF; padding-right:5%; padding-left:5%; padding-top:5%">
+                {% for item in trending_products %}
+                    <div class="item">
+                        <div class="card" style="margin-bottom:30px; margin-top:20px; margin-right:5%">
+                            <a href="{% url 'productview' item.category.slug item.slug %}"> 
+                                <div class="card-body">
+                                    <div class="category-image">
+                                        <img src="{{ item.product_image.url }}" alt="Product Image", height=200px, width=100%, style="padding:20px;"/>
+                                    </div>
+                                    <h4 style="text-align:center; margin-bottom:0px; font-size:13px;"> {{ item.name}} </h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer" >
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-info">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span>electro-Cart</span>
+          </a>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <div class="social-links d-flex mt-4">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>
+            A108 Adam Street <br>
+            New York, NY 535022<br>
+            United States <br><br>
+            <strong>Phone:</strong> +1 5589 55488 55<br>
+            <strong>Email:</strong> electroCart@gmail.com<br>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+</footer>
+
+  <!-- End Footer -->
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        dots: false,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:4
+            }
+        }
+    })
+</script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+  
